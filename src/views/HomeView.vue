@@ -1,18 +1,21 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <book v-for="book in this.books" :key="book" :isbn="book.isbn" :name="book.name" :author="book.authors[0]" :released="book.released"/>
 </template>
 
 <script>
+import Book from '@/components/Book.vue'
+import DataService from '@/DataService.js'
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
-
 export default {
   name: 'HomeView',
-  components: {
-    HelloWorld
+  components: {Book},
+  data() {
+    return {
+      books : []
+    }
+  },
+  created() {
+    DataService.getData().then((value) => {this.books = value})
   }
 }
 </script>
