@@ -1,10 +1,10 @@
 <template>
   <div class="p-2" >
     <a href="/detail" @click="setCommit()">
-      {{name}}
+      {{book.name}}
     </a>
-    <p>{{author}}</p>
-    <p>{{released}}</p>
+    <p>{{book.authors[0]}}</p>
+    <p>{{book.released}}</p>
   </div>
 </template>
 
@@ -12,14 +12,11 @@
 export default {
   name: 'Book',
   props: {
-    isbn: String,
-    name: String,
-    author : String,
-    released : String
+    book : {}
   },
   methods: {
     setCommit() {
-      localStorage.setItem("currentBook",this.isbn)
+      localStorage.setItem("currentBook",this.book.isbn)
     },
   },
 }

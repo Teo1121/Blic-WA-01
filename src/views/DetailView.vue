@@ -40,14 +40,6 @@ export default {
     DataService.getData().then((data) => {this.book = data.find(
           (bk) => bk.isbn === localStorage.getItem("currentBook")
         );})
-    console.log(this.book)
   }
 }
 </script>
-
-<style lang="scss">
-  .username {
-    display: inline; 
-    margin-left: 1rem;
-  }
-</style>

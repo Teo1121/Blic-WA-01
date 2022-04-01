@@ -1,5 +1,5 @@
 <template>
-  <book v-for="book in this.books" :key="book" :isbn="book.isbn" :name="book.name" :author="book.authors[0]" :released="book.released"/>
+  <book v-for="book in this.books" :key="book" :book="book"/>
 </template>
 
 <script>
